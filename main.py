@@ -15,7 +15,9 @@ def find_order(order_id):
 
 
 # Rowel Dulu
-
+@app.get("/orders")
+def get_orders():
+    return jsonify(orders), 200
 
 
 # Gideon Fernandez
