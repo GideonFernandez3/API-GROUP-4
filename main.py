@@ -31,7 +31,6 @@ def get_order(order_id):
 
 # John Andhrie Mercado
 @app.post("/orders")
-
 def create_order():
     data = request.get_json(silent=True)
     if not isinstance(data, dict) or not isinstance(data.get("item"), str) or not data["item"].strip():
