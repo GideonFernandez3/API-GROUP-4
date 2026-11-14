@@ -43,7 +43,7 @@ def create_order():
     next_id = max((order["order_id"] for order in orders), default=0) + 1
     order = {"order_id": next_id, "item": data["item"].strip(), "paid": data.get("paid", False)}
     orders.append(order)
-        return jsonify(order), 201
+    return jsonify(order), 201
  
 
 
