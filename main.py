@@ -19,7 +19,12 @@ def find_order(order_id):
 
 
 # Gideon Fernandez
-
+@app.get("/orders/<int:order_id>")
+def get_order(order_id):
+    order = find_order(order_id)
+    if order is None:
+        return jsonify({"error": "Order not found"}), 404
+    return jsonify(order), 200
 
 
 # John Andhrie Mercado
