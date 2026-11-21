@@ -59,6 +59,18 @@ def update_payment(order_id):
     order["paid"] = data["paid"]
     return jsonify(order), 200
 
+# DELETE - Remove an Order
+@app.delete("/orders/<int:order_id>")
+def delete_order(order_id):
+    order = find_order(order_id)
+ 
+    if order is None:
+        return jsonify({"error": "Order not found"}), 404
+ 
+    orders.remove(order)
+ 
+    return jsonify({"message": "Order deleted successfully"}), 200
+
 
 
 if __name__ == "__main__":
